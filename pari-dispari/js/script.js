@@ -12,9 +12,9 @@ console.log("scelto:", oddOrEven);
 const userNumber = parseInt(prompt("inserisci un numero"));
 console.log("numero utente:", userNumber);
 
-const sumNumber = generateRandomNumber(1, 5);
-
-const thewinner = theWinneris(sumNumber);
+const randNumber = generateRandomNumber(1, 5);
+const thewinner = theWinneris(userNumber, randNumber);
+console.log(thewinner);
 
 // creo la funzione per il numero random
 /**
@@ -27,12 +27,7 @@ function generateRandomNumber(min, max) {
     // genero il numero per il computer
     let randNumber = Math.floor(Math.random() * (max - min + 1) ) + min; 
     console.log("numero computer:", randNumber);
-
-    // faccio la somma dei 2 numeri
-    let sum = userNumber + randNumber;
-    console.log("somma:", sum);
-
-    return sum;
+    return randNumber;
 }
 
 // creo la funzione per stabilire chi ha vinto
@@ -41,12 +36,18 @@ function generateRandomNumber(min, max) {
  * @param {any} winner -> 
  * @returns {any} result of the winner of game
  */
-function theWinneris(winnerIs) {
-    if (oddOrEven === sumNumber) {
+function theWinneris(num1, num2) {
+    let result = "";
+    let sumNumber = num1 + num2;
+    console.log("la somma è:", sumNumber);
+
+    if (oddOrEven === "pari" && sumNumber % 2 == 0) {
+        result = "hai vinto tu";
+    } else if (oddOrEven === "dispari" && sumNumber % 2 !== 0) {
         result = "hai vinto tu";
     } else {
-        result = "ha vinto il computer";
+        result = "hai perso!";
     }
-    console.log(result);
+
     return result;
 }
