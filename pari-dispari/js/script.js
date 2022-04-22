@@ -5,16 +5,19 @@
 // Dichiariamo chi ha vinto.
 
 // chiedo all'utente di scegliere pari o dispari
-const oddOrEven = prompt("scegli pari o dispari");
-console.log("scelto:", oddOrEven);
+let oddOrEven;
+do {
+    oddOrEven = (prompt("scegli pari o dispari").toLocaleLowerCase());
+    console.log("scelto:", oddOrEven);
+} while (oddOrEven !== "pari" && oddOrEven !== "dispari")
 
 // chiedo di inserire un numero da 1 a 5
 const userNumber = parseInt(prompt("inserisci un numero"));
 console.log("numero utente:", userNumber);
 
 const randNumber = generateRandomNumber(1, 5);
-const thewinner = theWinneris(userNumber, randNumber);
-console.log(thewinner);
+const theWinner = theWinneris(userNumber, randNumber);
+console.log(theWinner);
 
 // creo la funzione per il numero random
 /**
